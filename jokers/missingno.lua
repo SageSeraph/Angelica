@@ -9,15 +9,16 @@ SMODS.Joker{ --MissingNo.
         ['name'] = 'MissingNo.',
         ['text'] = {
             [1] = 'Enemy {C:inactive}4  85 hfdwsh8 245ghj 93825 nfhwuti oabif TMTRAINER MissingNo.{} is {C:planet}frozen solid{}!',
-            [2] = 'Enemy {C:inactive}4  85 hfdwsh8 245ghj 93825 nfhwuti oabif TMTRAINER MissingNo.{} is {C:diamonds}hurt by the burn{}!'
+            [2] = 'Enemy {C:inactive}4  85 hfdwsh8 245ghj 93825 nfhwuti oabif TMTRAINER MissingNo.{} is {C:diamonds}hurt by the burn{}!',
+            [3] = '{s:0.85,C:inactive}Art by SageSeraph{}'
         },
         ['unlock'] = {
             [1] = ''
         }
     },
     pos = {
-        x = 9,
-        y = 0
+        x = 1,
+        y = 1
     },
     display_size = {
         w = 71 * 1, 
@@ -32,7 +33,7 @@ SMODS.Joker{ --MissingNo.
     discovered = true,
     atlas = 'CustomJokers',
     soul_pos = {
-        x = 0,
+        x = 2,
         y = 1
     },
     in_pool = function(self, args)

@@ -8,7 +8,8 @@ SMODS.Enhancement {
         name = 'Wood',
         text = {
         [1] = '{C:red}+7{} Mult',
-        [2] = 'No rank or suit'
+        [2] = 'No rank or suit',
+        [3] = '{s:0.85,C:inactive}\"I\'m Minecrafting, Mom!\"{}'
     }
     },
     atlas = 'CustomEnhancements',

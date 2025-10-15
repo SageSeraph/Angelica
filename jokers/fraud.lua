@@ -10,14 +10,14 @@ SMODS.Joker{ --Fraud
         ['name'] = 'Fraud',
         ['text'] = {
             [1] = '{C:blue}-2 Hands{}, {C:red}+6 Discards{}.',
-            [2] = '{C:inactive,s:0.85}Currently uses placeholder art{}'
+            [2] = '{C:inactive,s:0.85}Currently uses placeholder art by doggfly{}'
         },
         ['unlock'] = {
             [1] = ''
         }
     },
     pos = {
-        x = 3,
+        x = 5,
         y = 0
     },
     display_size = {

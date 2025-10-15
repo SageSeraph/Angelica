@@ -15,14 +15,15 @@ SMODS.Joker{ --Drag n Drop
             [2] = '{C:green}#4# in #5# {}chance of creating a',
             [3] = 'random Negative {C:legendary}Legendary{} Joker and destroying self.',
             [4] = '{C:green}#2# in #3# {}chance of creating a',
-            [5] = 'random Negative {C:gold}Angelic{} Joker and destroying self.'
+            [5] = 'random Negative {C:gold}Angelic{} Joker and destroying self.',
+            [6] = '{s:0.85,C:inactive}Art by gfsgfsgfs{}'
         },
         ['unlock'] = {
             [1] = ''
         }
     },
     pos = {
-        x = 1,
+        x = 3,
         y = 0
     },
     display_size = {
@@ -39,6 +40,7 @@ SMODS.Joker{ --Drag n Drop
     atlas = 'CustomJokers',
 
     loc_vars = function(self, info_queue, card)
+        
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_angelica_dragndropjok')
         local new_numerator2, new_denominator2 = SMODS.get_probability_vars(card, 1, card.ability.extra.odds2, 'j_angelica_dragndropjok')
         return {vars = {card.ability.extra.angelic, new_numerator, new_denominator, new_numerator2, new_denominator2}}
@@ -67,10 +69,9 @@ SMODS.Joker{ --Drag n Drop
                   }))
                         card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = created_joker and localize('k_plus_joker') or nil, colour = G.C.BLUE})
                         SMODS.calculate_effect({func = function()
-                card:start_dissolve()
+                card:undefined()
                 return true
             end}, card)
-                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Dropped!", colour = G.C.RED})
           end
                     if SMODS.pseudorandom_probability(card, 'group_1_43edd851', 1, card.ability.extra.odds2, 'j_angelica_dragndropjok', false) then
               local created_joker = true
@@ -87,10 +88,9 @@ SMODS.Joker{ --Drag n Drop
                   }))
                         card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = created_joker and localize('k_plus_joker') or nil, colour = G.C.BLUE})
                         SMODS.calculate_effect({func = function()
-                card:start_dissolve()
+                card:undefined()
                 return true
             end}, card)
-                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Dropped!", colour = G.C.RED})
           end
                         return true
                     end

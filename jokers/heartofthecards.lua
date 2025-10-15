@@ -7,14 +7,15 @@ SMODS.Joker{ --Heart of the Cards
     loc_txt = {
         ['name'] = 'Heart of the Cards',
         ['text'] = {
-            [1] = 'Create a randomized card with the {C:hearts}Hearts{} suit whenever a {C:attention}Wild{} card is scored.'
+            [1] = 'Create a randomized card with the {C:hearts}Hearts{} suit whenever a {C:attention}Wild{} card is scored.',
+            [2] = '{s:0.85,C:inactive}Art by EverSoNitro{}'
         },
         ['unlock'] = {
             [1] = ''
         }
     },
     pos = {
-        x = 4,
+        x = 6,
         y = 0
     },
     display_size = {
