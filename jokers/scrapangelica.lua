@@ -1,33 +1,29 @@
-SMODS.Joker{ --ERROR
-    key = "errorjok",
+SMODS.Joker{ --Scrap (Angelica)
+    key = "scrapangelica",
     config = {
         extra = {
-            emult_min = 1,
-            emult_max = 2.3
+            emult = 1.33
         }
     },
     loc_txt = {
-        ['name'] = 'ERROR',
+        ['name'] = 'Scrap (Angelica)',
         ['text'] = {
-            [1] = '{C:green}ERRORERRORERRORERROR',
-            [2] = 'ERRORERRORERRORERROR',
-            [3] = 'ERRORERRORERRORERROR',
-            [4] = 'ERRORERRORERRORERROR{}',
-            [5] = '{s:0.85,C:inactive}Art by cokeblock4043{}'
+            [1] = '{X:red,C:white}^1.33{} Mult when a {C:hearts}Heart{} is scored.',
+            [2] = '{s:0.85,C:inactive}Art by Astro{}'
         },
         ['unlock'] = {
-            [1] = ''
+            [1] = 'Unlocked by default.'
         }
     },
     pos = {
-        x = 4,
-        y = 0
+        x = 5,
+        y = 1
     },
     display_size = {
         w = 71 * 1, 
         h = 95 * 1
     },
-    cost = 127,
+    cost = 69,
     rarity = "angelica_angelic",
     blueprint_compat = true,
     eternal_compat = true,
@@ -35,13 +31,19 @@ SMODS.Joker{ --ERROR
     unlocked = true,
     discovered = true,
     atlas = 'CustomJokers',
+    pools = { ["angelica_angelica_jokers"] = true },
+    soul_pos = {
+        x = 6,
+        y = 1
+    },
 
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play  then
+            if context.other_card:is_suit("Hearts") then
                 return {
-                    e_mult = pseudorandom('emult_bb29b5c5', card.ability.extra.emult_min, card.ability.extra.emult_max),
-                    message = "ERROR"
+                    e_mult = card.ability.extra.emult
                 }
+            end
         end
     end
 }

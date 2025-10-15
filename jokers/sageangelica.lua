@@ -1,24 +1,25 @@
-SMODS.Joker{ --SageSeraph
-    key = "sageseraph",
+SMODS.Joker{ --Sage (Angelica)
+    key = "sageangelica",
     config = {
         extra = {
-            echips = 127,
-            emult = 127
+            echips = 1.27,
+            emult = 1.27
         }
     },
     loc_txt = {
-        ['name'] = 'SageSeraph',
+        ['name'] = 'Sage (Angelica)',
         ['text'] = {
             [1] = '{C:gold}The Seraph.{}',
-            [2] = 'Scored {C:dark_edition}Polychrome{} {C:attention}Lucky{} Aces give {C:dark_edition}^127 Chips and Mult{}.',
-            [3] = 'Always spawns as {C:dark_edition}Polychrome{}.'
+            [2] = 'Scored {C:dark_edition}Polychrome{} {C:attention}Lucky{} Aces give {C:dark_edition}^1.27 Chips and Mult{}.',
+            [3] = 'Always spawns as {C:dark_edition}Polychrome{}.',
+            [4] = '{s:0.85,C:inactive}Art by Astro{}'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
         }
     },
     pos = {
-        x = 1,
+        x = 3,
         y = 1
     },
     display_size = {
@@ -26,7 +27,7 @@ SMODS.Joker{ --SageSeraph
         h = 95 * 1
     },
     cost = 666,
-    rarity = "angelica_seraphic",
+    rarity = "angelica_angelic",
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = false,
@@ -34,7 +35,7 @@ SMODS.Joker{ --SageSeraph
     discovered = true,
     atlas = 'CustomJokers',
     soul_pos = {
-        x = 2,
+        x = 4,
         y = 1
     },
     in_pool = function(self, args)
@@ -67,8 +68,18 @@ SMODS.Joker{ --SageSeraph
 
 local check_for_buy_space_ref = G.FUNCS.check_for_buy_space
 G.FUNCS.check_for_buy_space = function(card)
-    if card.config.center.key == "j_angelica_sageseraph" then -- ignore slot limit when bought
+    if card.config.center.key == "j_angelica_sageangelica" then -- ignore slot limit when bought
         return true
     end
     return check_for_buy_space_ref(card)
+end
+
+local can_select_card_ref = G.FUNCS.can_select_card
+G.FUNCS.can_select_card = function(e)
+	if e.config.ref_table.config.center.key == "j_angelica_sageangelica" then
+		e.config.colour = G.C.GREEN
+		e.config.button = "use_card"
+	else
+		can_select_card_ref(e)
+	end
 end

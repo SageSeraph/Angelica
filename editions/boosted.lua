@@ -7,7 +7,9 @@ SMODS.Edition {
         shader = false
     },
     config = {
-        x_chips = 1.5
+        extra = {
+            x_chips = 1.5
+        }
     },
     in_shop = false,
     weight = 0.001,
@@ -31,7 +33,7 @@ SMODS.Edition {
   
     calculate = function(self, card, context)
         if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
-            return { x_chips = card.edition.x_chips }
+            return { x_chips = card.edition.extra.x_chips }
         end
     end
 }

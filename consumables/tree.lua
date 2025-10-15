@@ -6,7 +6,7 @@ SMODS.Consumable {
         name = 'Tree',
         text = {
         [1] = 'Enhances {C:attention}1{} selected card into a {C:attention}Wood{} Card',
-        [2] = '{C:inactive,s:0.85}Currently uses placeholder art.{}'
+        [2] = '{C:inactive,s:0.85}Currently uses placeholder art by wilfredlam0418.{}'
     }
     },
     cost = 3,
@@ -46,7 +46,7 @@ SMODS.Consumable {
                     trigger = 'after',
                     delay = 0.1,
                     func = function()
-                        G.hand.highlighted[i]:set_ability(G.P_CENTERS['m_angelica_wood'])
+                        G.hand.highlighted[i]:set_ability(G.P_CENTERS['m_angelica_wood'])            
                         return true
                     end
                 }))

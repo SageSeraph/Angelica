@@ -3,17 +3,17 @@ SMODS.Consumable {
     set = 'heavenly',
     pos = { x = 2, y = 0 },
     config = { extra = {
-        destroy_joker_amount = 9999999
+        destroy_joker_amount = 999
     } },
     loc_txt = {
         name = 'Seraphim',
         text = {
         [1] = 'Destroys {C:red}ALL{} Jokers.',
         [2] = 'Creates a random {C:money}Seraphic{} Joker.',
-        [3] = '{C:inactive,s:0.85}Currently uses placeholder art.{}'
+        [3] = '{C:inactive,s:0.85}Currently uses placeholder art by cebeedrawz{}'
     }
     },
-    cost = 15,
+    cost = 25,
     unlocked = true,
     discovered = true,
     hidden = false,
@@ -21,6 +21,23 @@ SMODS.Consumable {
     atlas = 'CustomConsumables',
     use = function(self, card, area, copier)
         local used_card = copier or card
+            G.E_MANAGER:add_event(Event({
+                  trigger = 'after',
+                  delay = 0.4,
+                  func = function()
+                      play_sound('timpani')
+                      if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
+                          G.GAME.joker_buffer = G.GAME.joker_buffer + 1
+                      local new_joker = SMODS.add_card({ set = 'Joker', rarity = 'angelica_seraphic' })
+                      if new_joker then
+                      end
+                          G.GAME.joker_buffer = 0
+                      end
+                      used_card:juice_up(0.3, 0.5)
+                      return true
+                  end
+              }))
+              delay(0.6)
             local jokers_to_destroy = {}
             local deletable_jokers = {}
             
@@ -38,7 +55,7 @@ SMODS.Consumable {
                 
                 pseudoshuffle(temp_jokers, 98765)
                 
-                for i = 1, math.min(9999999, #temp_jokers) do
+                for i = 1, math.min(999, #temp_jokers) do
                     jokers_to_destroy[#jokers_to_destroy + 1] = temp_jokers[i]
                 end
             end
@@ -66,23 +83,6 @@ SMODS.Consumable {
                 end
             }))
             delay(0.6)
-            G.E_MANAGER:add_event(Event({
-                  trigger = 'after',
-                  delay = 0.4,
-                  func = function()
-                      play_sound('timpani')
-                      if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
-                          G.GAME.joker_buffer = G.GAME.joker_buffer + 1
-                      local new_joker = SMODS.add_card({ set = 'Joker', rarity = 'angelica_seraphic' })
-                      if new_joker then
-                      end
-                          G.GAME.joker_buffer = 0
-                      end
-                      used_card:juice_up(0.3, 0.5)
-                      return true
-                  end
-              }))
-              delay(0.6)
     end,
     can_use = function(self, card)
         return true

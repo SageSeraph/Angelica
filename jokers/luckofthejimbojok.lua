@@ -10,14 +10,15 @@ SMODS.Joker{ --Luck of the Jimbo
         ['name'] = 'Luck of the Jimbo',
         ['text'] = {
             [1] = '{X:legendary,C:white}^1.7{} Mult and Retrigger when {C:attention}Lucky{} Card is triggered.',
-            [2] = 'Turns all non-{C:attention}Lucky{} Cards into {C:attention}Lucky{} Cards.{C:dark_edition}{}'
+            [2] = 'Turns all non-{C:attention}Lucky{} Cards into {C:attention}Lucky{} Cards.{C:dark_edition}{}',
+            [3] = '{s:0.85,C:inactive}Art by SageSeraph{}'
         },
         ['unlock'] = {
             [1] = ''
         }
     },
     pos = {
-        x = 7,
+        x = 9,
         y = 0
     },
     display_size = {
@@ -33,8 +34,8 @@ SMODS.Joker{ --Luck of the Jimbo
     discovered = true,
     atlas = 'CustomJokers',
     soul_pos = {
-        x = 8,
-        y = 0
+        x = 0,
+        y = 1
     },
     in_pool = function(self, args)
           return (

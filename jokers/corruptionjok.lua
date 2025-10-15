@@ -13,14 +13,15 @@ SMODS.Joker{ --Corruption
             [1] = '{X:legendary,C:white}^1.25{} Chips & Mult.',
             [2] = '{C:uncommon}#1# in #2#{} chance to destroy a random Joker.',
             [3] = 'Always appears as Eternal and Rental.',
-            [4] = '{C:inactive,s:0.85}\"Seriously, for the love of god, install Source.\"{}'
+            [4] = '{C:inactive,s:0.85}\"Seriously, for the love of god, install Source.\"{}',
+            [5] = '{s:0.85,C:inactive}Art by EasternFarmer{}'
         },
         ['unlock'] = {
             [1] = ''
         }
     },
     pos = {
-        x = 0,
+        x = 2,
         y = 0
     },
     display_size = {
@@ -37,6 +38,7 @@ SMODS.Joker{ --Corruption
     atlas = 'CustomJokers',
 
     loc_vars = function(self, info_queue, card)
+        
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_angelica_corruptionjok') 
         return {vars = {new_numerator, new_denominator}}
     end,
@@ -60,7 +62,7 @@ SMODS.Joker{ --Corruption
                         if SMODS.pseudorandom_probability(card, 'group_0_e65ed9ba', 1, card.ability.extra.odds, 'j_angelica_corruptionjok', false) then
               local destructable_jokers = {}
                 for i, joker in ipairs(G.jokers.cards) do
-                    if joker ~= card and not joker.ability.eternal and not joker.getting_sliced then
+                    if joker ~= card and not SMODS.is_eternal(joker) and not joker.getting_sliced then
                         table.insert(destructable_jokers, joker)
                     end
                 end

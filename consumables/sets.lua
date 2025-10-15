@@ -5,7 +5,6 @@ SMODS.ConsumableType {
     collection_rows = { 4, 5 },
     shop_rate = 0,
     cards = {
-        ['c_angelica_heaven'] = true,
         ['c_angelica_nomad'] = true,
         ['c_angelica_seraphim'] = true
     },

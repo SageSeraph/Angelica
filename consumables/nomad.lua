@@ -9,7 +9,7 @@ SMODS.Consumable {
         name = 'Nomad',
         text = {
         [1] = 'Quadruples {C:money}money{}.',
-        [2] = '{s:0.85,C:inactive}Currently uses placeholder art.{}'
+        [2] = '{s:0.85,C:inactive}Currently uses placeholder art by cebeedrawz{}'
     }
     },
     cost = 4,
